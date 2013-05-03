@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'locations'|trans|capitalize }}
+{% endblock %}
+
+{% block body %}
+    <div class="well">
+        <h2>{{ 'locations.add.title'|trans|capitalize }}</h2>
+        {% include 'LicwebLocationBundle:Location:form.html.twig' %}
+    </div>
+    
+    <h1>{{ 'locations.list'|trans|capitalize }}</h1>
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>{{ 'location.name'|trans|capitalize }}</th>
+                <th>{{ 'location.address'|trans|capitalize }}</th>
+                <th>{{ 'location.phone'|trans|capitalize }}</th>
+                <th>{{ 'location.presentation'|trans|capitalize }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for location in locations %}
+                {# <li><a href="{{ path('licweb_location.location_getlocation', {'id': location.id}) }}">{{ location.name }}</a></li> #}
+                
+                <tr>
+                    <td><a href="{{ path('licweb_location.location_getlocation', {'id': location.id}) }}">{{ location.name }}</a></td>
+                    <td>{{ location.street }}, {{ location.zipCode }} {{ location.city }}</td>
+                    <td>{{ location.phoneNumber }}</td>
+                    <td>{{ location.presentation }}</td>
+                </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+        
+{% endblock %}

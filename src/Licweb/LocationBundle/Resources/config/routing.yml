@@ -1,0 +1,41 @@
+licweb_location.location_getlocations:
+    pattern:  /locations
+    defaults: { _controller: LicwebLocationBundle:Location:getLocations }
+    requirements:
+        _method: GET
+        
+licweb_location.location_getlocation:
+    pattern:     /locations/{id}
+    defaults: { _controller: LicwebLocationBundle:Location:getLocation }
+    requirements:
+        _method: GET
+
+licweb_location.location_addlocation:
+    pattern:     /locations
+    defaults: { _controller: LicwebLocationBundle:Location:addLocation }
+    requirements:
+        _method: POST
+        
+licweb_location.location_updatelocation:
+    pattern:     /locations/{id}
+    defaults: { _controller: LicwebLocationBundle:Location:updateLocation }
+    requirements:
+        _method: PUT
+
+licweb_location.location_deletelocation:
+    pattern:     /locations/{id}
+    defaults: { _controller: LicwebLocationBundle:Location:deleteLocation }
+    requirements:
+        _method: DELETE
+        
+licweb_location.comment_addcomment:
+    pattern:     /locations/{id}/comments
+    defaults: { _controller: LicwebLocationBundle:Comment:addComment }
+    requirements:
+        _method: POST
+        
+licweb_location.location_setlocale:
+    pattern:     /translations/{locale}
+    defaults: { _controller: LicwebLocationBundle:Locations:setLocale }
+    requirements:
+        _method: PUT

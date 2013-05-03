@@ -1,0 +1,46 @@
+-------------------- Compte rendu du projet Symfony2 --------------------
+Binome: GAZET Geoffrey & GAGNEVIN Cédric
+
+
+Nous avons réalisé le projet avec l'API REST de fonctionnelle. NelmioBundle a également été intégré pour documenter l'API créée.
+Nous avons géolicalisé les lieux avec Geocoder couplé à Google Maps.
+Nous avons également mis en place la traduction de notre projet et créé 2 dictionnaires en anglais et en français.
+Nous avons également créé des commandes console pour utiliser notre projet.
+
+Des tests fonctionnels ont été effectué pour le listage des locations et la commande d'ajout d'une location.
+
+Pour la persistence des données, nous avons opté pour Propel qui s'est trouvé être facile d'installation et d'utilisation.
+
+------------------------------------------
+            Tester l'API REST
+------------------------------------------
+
+**** JSON ****
+
+GetLocations :
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X GET http://localhost:8080/index_dev.php/locations
+
+GetLocation:
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X GET http://localhost:8080/index_dev.php/locations/2
+
+AddLocation:
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"location":{"name":"Place de Jaude", "street": "18 Rue Allagnat", "zipCode":"63000", "city":"Clermont-Ferrand", "phone_number":"", "presentation":"La place de jaude, centre ville de Clermont"}}' http://localhost:8080/index_dev.php/locations
+
+UpdateLocation:
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"location":{"name":"Place de Jaude", "street": "20 Rue Allagnat", "zipCode":"63000", "city":"Clermont-Ferrand", "phone_number":"0473112233", "presentation":"La place de jaude, le centre ville de Clermont"}}' http://localhost:8080/index_dev.php/locations/3
+
+DeleteLocation:
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST http://localhost:8080/index_dev.php/locations/2/comment
+
+AddComment:
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"comment":{"author":"Cedric", "message": "Trop bien !"}}' http://localhost:8080/index_dev.php/locations/2/comments
+
+
+**** XML ****
+
+GetLocations :
+curl -v -H "Accept: application/xml" -H "Content-type: application/xml" -X GET http://localhost:8080/index_dev.php/locations
+
+GetLocation:
+curl -v -H "Accept: application/xml" -H "Content-type: application/xml" -X GET http://localhost:8080/index_dev.php/locations/2
+

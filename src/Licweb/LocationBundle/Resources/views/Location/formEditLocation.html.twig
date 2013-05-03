@@ -1,0 +1,32 @@
+<form method=post action="{{ path('licweb_location.location_updatelocation', {'id': location.id}) }}" {{ form_enctype(form) }}>
+
+    {{ form_label(form.name, 'location.name'|trans|capitalize) }}
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name) }}
+
+    {{ form_label(form.street, 'location.street'|trans|capitalize) }}
+    {{ form_errors(form.street) }}
+    {{ form_widget(form.street) }}
+    
+    {{ form_label(form.zipCode, 'location.zipcode'|trans|capitalize) }}
+    {{ form_errors(form.zipCode) }}
+    {{ form_widget(form.zipCode) }}
+    
+    {{ form_label(form.city, 'location.city'|trans|capitalize) }}
+    {{ form_errors(form.city) }}
+    {{ form_widget(form.city) }}
+
+    {{ form_label(form.presentation, 'location.presentation'|trans|capitalize) }}
+    {{ form_errors(form.presentation) }}
+    {{ form_widget(form.presentation) }}
+    
+    {{ form_label(form.phone_number, 'location.phoneNumber'|trans|capitalize) }}
+    {{ form_errors(form.phone_number) }}
+    {{ form_widget(form.phone_number) }}
+
+    {{ form_rest(form) }}
+
+    <br/>
+    <input type="hidden" name="_method" value="PUT" />
+    <input type="submit" value="{{ 'update'|trans|capitalize }}" class="btn btn-danger" />
+</form>

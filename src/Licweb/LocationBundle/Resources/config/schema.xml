@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default"
+    namespace="Licweb\LocationBundle\Model"
+    defaultIdMethod="native"
+>
+    <table name="location">
+        <column name="id"
+            type="integer"
+            required="true"
+            primaryKey="true"
+            autoIncrement="true"
+        />
+        <column name="name"
+            type="varchar"
+            primaryString="true"
+            size="100"
+            required="true"
+        />
+        <column name="street"
+            type="varchar"
+            size="100"
+            required="true"
+        />
+        <column name="zipcode"
+            type="varchar"
+            size="5"
+            required="true"
+        />
+        <column name="city"
+            type="varchar"
+            size="100"
+            required="true"
+        />
+        <column name="presentation"
+            type="varchar"
+            size="1000"
+        />
+        <column name="phoneNumber"
+            type="varchar"
+            size="10"
+        />
+    </table>
+     <table name="comment">
+        <column name="id"
+            type="integer"
+            required="true"
+            primaryKey="true"
+            autoIncrement="true"
+        />
+        <column name="author"
+            type="varchar"
+            primaryString="true"
+            size="100"
+            required="true"
+        />
+        <column name="message"
+            type="varchar"
+            size="1000"
+            required="true"
+        />
+        <column name="idLocation"
+            type="integer" 
+            required="true"
+        />
+        <foreign-key foreignTable="location">
+            <reference local="idLocation" foreign="id" />
+        </foreign-key>
+    </table>
+</database>
+

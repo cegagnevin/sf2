@@ -1,0 +1,12 @@
+Licweb\LocationBundle\Model\om\BaseComment:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        author:
+            expose: true
+        message:
+            expose: true
+
+            
+       

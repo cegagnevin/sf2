@@ -1,0 +1,28 @@
+project.title: projet symfony2
+back: retour
+
+locations: lieux
+locations.list: liste des lieux
+locations.add.title: ajouter un nouveau lieu
+locations.add.button: ajouter ce lieu
+
+location.name: nom
+location.address: adresse
+location.phone: télephone
+location.presentation: présentation
+location.street: rue
+location.zipcode: code postal
+location.city: ville
+location.phoneNumber: numéro de téléphone
+location.updated: ce lieu a bien été mis à jour
+
+comments: commentaires
+comments.add.button: ajouter ce commentaire
+comments.add.title: ajouter un nouveau commentaire
+
+comment.author: auteur
+comment.message: message
+
+update: modifier
+delete: supprimer
+

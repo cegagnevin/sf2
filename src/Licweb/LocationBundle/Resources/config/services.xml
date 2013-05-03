@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    
+    <parameters>
+        <parameter key="licweb_location.locationrepository.class">Licweb\LocationBundle\Repository\LocationRepository</parameter>
+        <parameter key="licweb_location.viewhandler.class">Licweb\LocationBundle\View\ViewHandler</parameter>
+    </parameters>
+
+    <services>
+        <service id="licweb_location.locationrepository" class="%licweb_location.locationrepository.class%">
+            <argument></argument>
+        </service>
+        <service id="licweb_location.view_handler" class="%licweb_location.viewhandler.class%">
+            <argument>%fos_rest.formats%</argument>
+            <argument>%fos_rest.failed_validation%</argument>
+            <argument>%fos_rest.empty_content%</argument>
+            <argument>%fos_rest.serialize_null%</argument>
+            <argument>%fos_rest.force_redirects%</argument>
+            <argument>%fos_rest.default_engine%</argument>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+    </services>
+    
+</container>

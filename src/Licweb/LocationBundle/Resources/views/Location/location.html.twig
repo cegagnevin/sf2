@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{location.name}}
+{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="well">
+        <h1>{{location.name}}</h1>
+        
+        {% include 'LicwebLocationBundle:Location:formEditLocation.html.twig' %}
+        
+        <form method=post action="{{ path('licweb_location.location_deletelocation', {'id': location.id}) }}">
+            <input type="hidden" name="_method" value="DELETE" />
+            <input type="submit" value="{{ 'delete'|trans|title }}" class="btn btn-success" />
+        </form>
+        
+        {% if latitude is not null and longitude is not null %}
+            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fr/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;t=m&amp;ll={{latitude}},{{longitude}}&amp;spn=0.079082,0.145912&amp;z=12&amp;iwloc=A&amp;output=embed"></iframe>
+        {% endif %}
+    </div>
+    
+    <h2>{{ 'comments'|trans|capitalize }}</h2>
+    
+    <div class="well">
+        <h3>{{ 'comments.add.title'|trans|capitalize }}</h3>
+        <form method=post action="{{ path('licweb_location.comment_addcomment', {'id': location.id}) }}" {{ form_enctype(formComment) }}>
+
+            {{ form_label(formComment.author, 'comment.author'|trans|capitalize) }}
+            {{ form_errors(formComment.author) }}
+            {{ form_widget(formComment.author) }}
+
+            {{ form_label(formComment.message, 'comment.message'|trans|capitalize) }}
+            {{ form_errors(formComment.message) }}
+            {{ form_widget(formComment.message) }}
+
+            {{ form_rest(formComment) }}
+
+            <br/>
+            <input type="hidden" name="_method" value="POST">
+            <input type="submit" value="{{ 'comments.add.button'|trans|capitalize }}" class="btn btn-primary"/>
+        </form>
+    </div>
+    
+    
+    
+    {% for comment in comments %}
+        <div class="well">
+            <h3>{{comment.author}}</h3>
+            <p>{{comment.message}}</p>
+        </div>
+    {% endfor %}
+    
+    
+    <a href="{{ path('licweb_location.location_getlocations') }}">{{ 'back'|trans|capitalize }}</a>
+{% endblock %}
+

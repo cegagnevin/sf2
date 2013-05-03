@@ -1,0 +1,20 @@
+Licweb\LocationBundle\Model\om\BaseLocation:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        name:
+            expose: true
+        street:
+            expose: true
+        zipCode:
+            expose: true
+        city:
+            expose: true
+        presentation:
+            expose: true
+        phonenumber:
+            expose: true
+
+            
+       

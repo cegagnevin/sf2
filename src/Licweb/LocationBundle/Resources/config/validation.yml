@@ -1,0 +1,27 @@
+Licweb\LocationBundle\Model\Location:
+    properties:
+        name:
+            - NotBlank: ~
+            - NotNull: ~
+        street:
+            - NotBlank: ~
+            - NotNull: ~
+        zipcode:
+            - NotBlank: ~
+            - NotNull: ~
+        city:
+            - NotBlank: ~
+            - NotNull: ~
+        presentation:
+        phonenumber:
+            
+            
+Licweb\LocationBundle\Model\Comment:
+    properties:
+        author:
+            - NotBlank: ~
+            - NotNull: ~
+        message:
+            - NotBlank: ~
+            - NotNull: ~
+            
